@@ -6,7 +6,7 @@
     "test": "test"
   },
   "scripts": {
-    "api-test-cicd": "newman run test/collection.json"
+    "api-test-cicd": "newman run test/collection.json --insecure"
   },
   "dependencies": {
     "newman": "^5.2.2"
