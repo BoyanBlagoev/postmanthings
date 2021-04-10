@@ -1,0 +1,1209 @@
+{
+	"info": {
+		"_postman_id": "2a3e9fa6-7741-4ef1-8b22-37fa934e0469",
+		"name": "Health Checks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CICD AVS HealthChecks",
+			"item": [
+				{
+					"name": "Minor checks",
+					"item": [
+						{
+							"name": "CICD App-Health US10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"AVS \" + pm.request.url + \" is available\" ,  () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", () => {",
+											"    pm.expect(jsonData.status).to.eql(\"UP\")",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cicd-service.cfapps.us10.hana.ondemand.com/health/ping",
+									"protocol": "https",
+									"host": [
+										"cicd-service",
+										"cfapps",
+										"us10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"health",
+										"ping"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CICD App-Health EU10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", () => {",
+											"    pm.expect(jsonData.status).to.eql(\"UP\")",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cicd-service.cfapps.eu10.hana.ondemand.com/health/ping",
+									"protocol": "https",
+									"host": [
+										"cicd-service",
+										"cfapps",
+										"eu10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"health",
+										"ping"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CICD Elastic Health US10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", () => {",
+											"    pm.expect(jsonData.status).to.eql(\"UP\")",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cicd-service.cfapps.us10.hana.ondemand.com/health/elasticsearch",
+									"protocol": "https",
+									"host": [
+										"cicd-service",
+										"cfapps",
+										"us10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"health",
+										"elasticsearch"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CICD K8S Health US10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", () => {",
+											"    pm.expect(jsonData.status).to.eql(\"UP\")",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cicd-service.cfapps.us10.hana.ondemand.com/health/kubernetes",
+									"protocol": "https",
+									"host": [
+										"cicd-service",
+										"cfapps",
+										"us10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"health",
+										"kubernetes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CICD Elastic Health EU10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", () => {",
+											"    pm.expect(jsonData.status).to.eql(\"UP\")",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cicd-service.cfapps.eu10.hana.ondemand.com/health/elasticsearch",
+									"protocol": "https",
+									"host": [
+										"cicd-service",
+										"cfapps",
+										"eu10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"health",
+										"elasticsearch"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CICD K8S Health EU10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", () => {",
+											"    pm.expect(jsonData.status).to.eql(\"UP\")",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cicd-service.cfapps.eu10.hana.ondemand.com/health/kubernetes",
+									"protocol": "https",
+									"host": [
+										"cicd-service",
+										"cfapps",
+										"eu10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"health",
+										"kubernetes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CICD Steward US10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", () => {",
+											"    pm.expect(jsonData.status).to.eql(\"UP\")",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cicd-service.cfapps.us10.hana.ondemand.com/health/steward",
+									"protocol": "https",
+									"host": [
+										"cicd-service",
+										"cfapps",
+										"us10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"health",
+										"steward"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CICD Steward EU10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", () => {",
+											"    pm.expect(jsonData.status).to.eql(\"UP\")",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cicd-service.cfapps.eu10.hana.ondemand.com/health/steward",
+									"protocol": "https",
+									"host": [
+										"cicd-service",
+										"cfapps",
+										"eu10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"health",
+										"steward"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "XSUAA",
+					"item": [
+						{
+							"name": "XSUAA BasicHealth US10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", function () {",
+											"pm.response.to.have.body(\"ok\\n\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://authentication.us10.hana.ondemand.com/healthz",
+									"protocol": "https",
+									"host": [
+										"authentication",
+										"us10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"healthz"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "XSUAA BasicHealth EU10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", function () {",
+											"pm.response.to.have.body(\"ok\\n\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://authentication.eu10.hana.ondemand.com/healthz",
+									"protocol": "https",
+									"host": [
+										"authentication",
+										"eu10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"healthz"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "App Logging",
+					"item": [
+						{
+							"name": "App Logging EU10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", () => {",
+											"    pm.expect(jsonData.state).to.eql(1);",
+											"    pm.expect(jsonData.platformAccess).to.eql(1);",
+											"    pm.expect(jsonData.stackAccess).to.eql(1);",
+											"    pm.expect(jsonData.e2escenario).to.eql(1);",
+											"    pm.expect(jsonData.testLevel).to.eql(3);",
+											"    pm.expect(jsonData.error).to.eql(\"\");",
+											"",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cf-logging-monitor.cf.eu10.hana.ondemand.com/health",
+									"protocol": "https",
+									"host": [
+										"cf-logging-monitor",
+										"cf",
+										"eu10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "App Logging US10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", () => {",
+											"    pm.expect(jsonData.state).to.eql(1);",
+											"    pm.expect(jsonData.platformAccess).to.eql(1);",
+											"    pm.expect(jsonData.stackAccess).to.eql(1);",
+											"    pm.expect(jsonData.e2escenario).to.eql(1);",
+											"    pm.expect(jsonData.testLevel).to.eql(3);",
+											"    pm.expect(jsonData.error).to.eql(\"\");",
+											"",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cf-logging-monitor.cf.us10.hana.ondemand.com/health",
+									"protocol": "https",
+									"host": [
+										"cf-logging-monitor",
+										"cf",
+										"us10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"health"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Destination Service",
+					"item": [
+						{
+							"name": "Destination Service EU10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\" , () => {",
+											"    pm.expect(pm.response.text()).to.include(\"health status: OK\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://destination-configuration.cfapps.eu10.hana.ondemand.com/destination-configuration/v1/healthcheck",
+									"protocol": "https",
+									"host": [
+										"destination-configuration",
+										"cfapps",
+										"eu10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"destination-configuration",
+										"v1",
+										"healthcheck"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Destination Service US10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\" , () => {",
+											"    pm.expect(pm.response.text()).to.include(\"health status: OK\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://destination-configuration.cfapps.eu10.hana.ondemand.com/destination-configuration/v1/healthcheck",
+									"protocol": "https",
+									"host": [
+										"destination-configuration",
+										"cfapps",
+										"eu10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"destination-configuration",
+										"v1",
+										"healthcheck"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Destination Service Broker EU10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\" , () => {",
+											"    pm.expect(pm.response.text()).to.include(\"health status: OK\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://destination-service-broker.cfapps.eu10.hana.ondemand.com/broker/healthcheck",
+									"protocol": "https",
+									"host": [
+										"destination-service-broker",
+										"cfapps",
+										"eu10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"broker",
+										"healthcheck"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Destination Service Broker US10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Monitor \"+ pm.request.url + \" is UP\" , () => {",
+											"    pm.expect(pm.response.text()).to.include(\"health status: OK\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://destination-service-broker.cfapps.us10.hana.ondemand.com/broker/healthcheck",
+									"protocol": "https",
+									"host": [
+										"destination-service-broker",
+										"cfapps",
+										"us10",
+										"hana",
+										"ondemand",
+										"com"
+									],
+									"path": [
+										"broker",
+										"healthcheck"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CICD API checks",
+					"item": [
+						{
+							"name": "CICD  K8S P2 API",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CICD P2 K8S Cluster API is available\" ,  () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \" is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  ",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://ae5663ac3353847d4b196de936063136-581142350.eu-central-1.elb.amazonaws.com/healthz",
+									"protocol": "https",
+									"host": [
+										"ae5663ac3353847d4b196de936063136-581142350",
+										"eu-central-1",
+										"elb",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"healthz"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CICD K8S T3 API",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CICD T3 K8S Cluster API is available\" ,  () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \" is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://a70a21ce5b9c04d828fcd5e0d27630b5-1704113836.eu-central-1.elb.amazonaws.com/healthz",
+									"protocol": "https",
+									"host": [
+										"a70a21ce5b9c04d828fcd5e0d27630b5-1704113836",
+										"eu-central-1",
+										"elb",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"healthz"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CICD K8s P3 API",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CICD P3 K8S Cluster API is available\" ,  () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time for \" + pm.request.url +  \" is less than 5s\", function () {  ",
+											"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+											"});  "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://a0fc618998cce44359aa4324d9531be3-956747731.us-east-1.elb.amazonaws.com/healthz",
+									"protocol": "https",
+									"host": [
+										"a0fc618998cce44359aa4324d9531be3-956747731",
+										"us-east-1",
+										"elb",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"healthz"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CICD UI Health EU10",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", function () {",
+									"pm.response.to.have.body(\"OK\\n\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+									"});  "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ui.cicd.cfapps.eu10.hana.ondemand.com/health",
+							"protocol": "https",
+							"host": [
+								"ui",
+								"cicd",
+								"cfapps",
+								"eu10",
+								"hana",
+								"ondemand",
+								"com"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CICD UI Health US10",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", function () {",
+									"pm.response.to.have.body(\"OK\\n\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+									"});  "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ui.cicd.cfapps.us10.hana.ondemand.com/health",
+							"protocol": "https",
+							"host": [
+								"ui",
+								"cicd",
+								"cfapps",
+								"us10",
+								"hana",
+								"ondemand",
+								"com"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CICD ServiceBroker Health US10",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", function () {",
+									"pm.response.to.have.body(\"OK\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+									"});  "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cicd-service-broker.cfapps.us10.hana.ondemand.com/health/",
+							"protocol": "https",
+							"host": [
+								"cicd-service-broker",
+								"cfapps",
+								"us10",
+								"hana",
+								"ondemand",
+								"com"
+							],
+							"path": [
+								"health",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CICD ServiceBroker Health EU10",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", function () {",
+									"pm.response.to.have.body(\"OK\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+									"});  "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cicd-service-broker.cfapps.eu10.hana.ondemand.com/health/",
+							"protocol": "https",
+							"host": [
+								"cicd-service-broker",
+								"cfapps",
+								"eu10",
+								"hana",
+								"ondemand",
+								"com"
+							],
+							"path": [
+								"health",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CICD ServiceBroker Health EU10 Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", function () {",
+									"pm.response.to.have.body(\"OK\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+									"});  "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cicd-service-broker.cfapps.eu10.hana.ondemand.com/health/",
+							"protocol": "https",
+							"host": [
+								"cicd-service-broker",
+								"cfapps",
+								"eu10",
+								"hana",
+								"ondemand",
+								"com"
+							],
+							"path": [
+								"health",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CICD Overall Check US10",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", function () {",
+									"    pm.response.to.have.body({\"status\":\"UP\",\"components\":{\"db\":{\"status\":\"UP\"},\"diskSpace\":{\"status\":\"UP\"},\"elasticsearch\":{\"status\":\"UP\"},\"kubernetes\":{\"status\":\"UP\"},\"ping\":{\"status\":\"UP\"},\"steward\":{\"status\":\"UP\"}},\"groups\":[\"liveness\"]});",
+									"});",
+									"",
+									"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+									"});  "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cicd-service.cfapps.us10.hana.ondemand.com/health",
+							"protocol": "https",
+							"host": [
+								"cicd-service",
+								"cfapps",
+								"us10",
+								"hana",
+								"ondemand",
+								"com"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CICD Overall Check EU10",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Monitor \"+ pm.request.url + \" is UP\", function () {",
+									"    pm.response.to.have.body({\"status\":\"UP\",\"components\":{\"db\":{\"status\":\"UP\"},\"diskSpace\":{\"status\":\"UP\"},\"elasticsearch\":{\"status\":\"UP\"},\"kubernetes\":{\"status\":\"UP\"},\"ping\":{\"status\":\"UP\"},\"steward\":{\"status\":\"UP\"}},\"groups\":[\"liveness\"]});",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time for \" + pm.request.url +  \"is less than 5s\", function () {  ",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);  ",
+									"}); "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cicd-service.cfapps.eu10.hana.ondemand.com/health",
+							"protocol": "https",
+							"host": [
+								"cicd-service",
+								"cfapps",
+								"eu10",
+								"hana",
+								"ondemand",
+								"com"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "ap10, ap11"
+		}
+	]
+}

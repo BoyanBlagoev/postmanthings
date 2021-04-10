@@ -1,0 +1,14 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "Project for storing Postman checks",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "api-test-cicd": "newman run test/collection.json"
+  },
+  "dependencies": {
+    "newman": "^5.2.2"
+  }
+}
