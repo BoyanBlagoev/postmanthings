@@ -6,7 +6,9 @@
     "test": "test"
   },
   "scripts": {
-    "api-test-cicd": "newman run test/collection.json --insecure --reporters junit --reporter-junit-export newman.xml"
+    "api-test-cicd": "newman run test/collection.json --insecure --reporters junit --reporter-junit-export newman.xml",
+    "api-test-cicd2": "newman run test/collection.json --insecure --timeout-request 5000 --reporters slackreporter --reporter-slackreporter-buildurl $BUILD_URL --reporter-slackreporter-webhookurl 'https://hooks.slack.com/services/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'" 
+
   },
   "dependencies": {
     "newman": "^5.2.2"
